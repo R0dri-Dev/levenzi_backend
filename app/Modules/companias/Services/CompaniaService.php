@@ -1,0 +1,49 @@
+<?php
+
+namespace App\Modules\companias\Services;
+
+use App\Models\Compania;
+use Illuminate\Pagination\LengthAwarePaginator;
+
+class CompaniaService
+{
+    public function list(array $filters): LengthAwarePaginator
+    {
+        $query = Compania::query();
+
+        if (array_key_exists('activo', $filters) && $filters['activo'] !== null) {
+            $query->where('activo', (bool) $filters['activo']);
+        }
+
+        $perPage = (int) ($filters['per_page'] ?? 15);
+
+        return $query
+            ->orderByDesc('id')
+            ->paginate($perPage);
+    }
+
+    public function getById(int $id): Compania
+    {
+        return Compania::findOrFail($id);
+    }
+
+    public function create(array $data): Compania
+    {
+        return Compania::create($data);
+    }
+
+    public function update(int $id, array $data): Compania
+    {
+        $compania = Compania::findOrFail($id);
+        $compania->update($data);
+
+        return $compania;
+    }
+
+    public function delete(int $id): void
+    {
+        $compania = Compania::findOrFail($id);
+        $compania->delete();
+    }
+}
+

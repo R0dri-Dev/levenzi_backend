@@ -1,0 +1,11 @@
+{
+    "mcpServers": {
+        "laravel-boost": {
+            "command": "C:\\xampp\\php\\php.exe",
+            "args": [
+                "C:\\Users\\HP\\Documents\\Grobdi_Proyect\\levenzi_backend\\artisan",
+                "boost:mcp"
+            ]
+        }
+    }
+}
