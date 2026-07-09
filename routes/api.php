@@ -12,7 +12,6 @@ Route::prefix('auth')->group(function () {
 });
 
 // Modules
-// Modules
 require __DIR__.'/../app/Modules/companias/Http/Routes/api.php';
 require __DIR__.'/../app/Modules/sedes/Http/Routes/api.php';
 require __DIR__.'/../app/Modules/clientes/Http/Routes/api.php';
@@ -25,6 +24,21 @@ require __DIR__.'/../app/Modules/permisos/Http/Routes/api.php';
 require __DIR__.'/../app/Modules/modulos/Http/Routes/api.php';
 require __DIR__.'/../app/Modules/productos/Http/Routes/api.php';
 require __DIR__.'/../app/Modules/ventas/Http/Routes/api.php';
+require __DIR__.'/../app/Modules/menu/Http/Routes/api.php';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

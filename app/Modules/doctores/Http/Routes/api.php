@@ -3,7 +3,9 @@
 use App\Modules\doctores\Http\Controllers\DoctorController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('auth:api')->group(function () {
+Route::middleware('auth:api')
+    ->prefix('doctores')
+    ->group(function () {
     Route::get('/', [DoctorController::class, 'index']);
     Route::get('/{id}', [DoctorController::class, 'show']);
     Route::post('/', [DoctorController::class, 'store']);
