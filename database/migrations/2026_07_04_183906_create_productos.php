@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-       Schema::create('productos', function (Blueprint $table) {
+        Schema::create('productos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('marca_id')->constrained()->restrictOnDelete();
+            $table->foreignId('instalacion_id')->constrained('instalaciones')->restrictOnDelete();
 
             $table->string('codigo')->unique();
             $table->string('nombre');

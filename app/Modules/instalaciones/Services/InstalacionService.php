@@ -42,10 +42,11 @@ class InstalacionService
         return $instalacion;
     }
 
-    public function delete(int $id): void
+    public function delete(int $id): Instalacion
     {
         $instalacion = Instalacion::findOrFail($id);
-        $instalacion->delete();
+        $instalacion->update(['activo' => false]);
+        return $instalacion;
     }
 }
 

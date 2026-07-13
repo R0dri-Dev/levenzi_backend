@@ -16,6 +16,7 @@ return new class extends Migration
     $table->string('nombre');
     $table->string('ruc')->nullable();
     $table->string('direccion')->nullable();
+    $table->boolean('activo')->default(true);
     $table->timestamps();
 });
     }

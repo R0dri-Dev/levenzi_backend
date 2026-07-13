@@ -17,14 +17,14 @@ class CompaniaUpdateRequest extends FormRequest
             'nombre' => ['sometimes', 'string', 'max:255'],
             'ruc' => ['sometimes', 'string', 'max:255'],
             'direccion' => ['sometimes', 'string', 'max:255'],
+            'activo' => ['sometimes', 'boolean'],
         ];
     }
 
     public function getData(): array
     {
         return collect($this->validated())
-            ->only(['nombre', 'ruc', 'direccion'])
+            ->only(['nombre', 'ruc', 'direccion', 'activo'])
             ->toArray();
     }
 }
-

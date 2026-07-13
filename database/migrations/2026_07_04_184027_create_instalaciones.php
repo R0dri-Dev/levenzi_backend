@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('sede_id')->constrained()->cascadeOnDelete();
             $table->string('nombre');
-            $table->string('tipo')->nullable(); 
+            $table->string('tipo')->nullable();
+            $table->boolean('activo')->default(true);
             $table->timestamps();
 
             $table->index('sede_id');

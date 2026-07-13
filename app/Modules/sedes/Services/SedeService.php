@@ -47,7 +47,7 @@ class SedeService
     public function delete(int $id): void
     {
         $sede = Sede::findOrFail($id);
-        $sede->delete();
+        $sede->update(['activo' => false]);
     }
 }
 

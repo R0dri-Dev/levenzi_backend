@@ -24,7 +24,7 @@ class ProductoService
         }
 
         if (! empty($filters['nombre'])) {
-            $query->where('nombre', 'like', '%' . $filters['nombre'] . '%');
+            $query->where('nombre', 'like', '%'.$filters['nombre'].'%');
         }
 
         $perPage = (int) ($filters['per_page'] ?? 15);
@@ -39,7 +39,6 @@ class ProductoService
 
     public function create(array $data): Producto
     {
-        // 'activo' ya viene en $data
         return Producto::create($data);
     }
 
@@ -51,10 +50,11 @@ class ProductoService
         return $producto;
     }
 
-    public function delete(int $id): void
+    public function delete(int $id): Producto
     {
         $producto = Producto::findOrFail($id);
-        $producto->delete();
+        $producto->update(['activo' => false]);
+
+        return $producto;
     }
 }
-

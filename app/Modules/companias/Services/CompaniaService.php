@@ -36,10 +36,22 @@ class CompaniaService
         return $compania;
     }
 
-    public function delete(int $id): void
+    public function delete(int $id): Compania
     {
         $compania = Compania::findOrFail($id);
-        $compania->delete();
+        $compania->update(['activo' => false]);
+
+        return $compania;
+    }
+
+    public function activate(int $id): Compania
+    {
+        $compania = Compania::findOrFail($id);
+
+        $compania->update([
+            'activo' => true,
+        ]);
+
+        return $compania;
     }
 }
-

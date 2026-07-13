@@ -28,10 +28,8 @@ class ProductoStoreRequest extends FormRequest
     {
         $data = $this->validated();
 
-        return [
-            $data,
+        return array_merge($data, [
             'activo' => $data['activo'] ?? true,
-        ];
+        ]);
     }
 }
-

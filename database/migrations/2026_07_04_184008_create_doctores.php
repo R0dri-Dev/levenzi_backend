@@ -15,9 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('sede_id')->constrained()->cascadeOnDelete();
             $table->string('nombre');
+            $table->string('cmp')->nullable()->unique();
             $table->string('especialidad')->nullable();
             $table->string('documento_numero')->nullable();
             $table->string('telefono')->nullable();
+            $table->string('email')->nullable();
+            $table->boolean('activo')->default(true);
             $table->timestamps();
 
             $table->index('sede_id');

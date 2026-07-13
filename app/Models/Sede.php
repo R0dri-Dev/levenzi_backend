@@ -18,6 +18,7 @@ class Sede extends Model
         'direccion',
         'telefono',
         'email',
+        'activo',
     ];
 
     protected $casts = [

@@ -45,7 +45,7 @@ class DoctorService
     public function delete(int $id): void
     {
         $doctor = Doctor::findOrFail($id);
-        $doctor->delete();
+        $doctor->update(['activo' => false]);
     }
 }
 

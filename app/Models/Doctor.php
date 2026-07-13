@@ -20,6 +20,10 @@ class Doctor extends Model
         'activo',
     ];
 
+    protected $casts = [
+        'activo' => 'boolean',
+    ];
+
     public function sede(): BelongsTo
     {
         return $this->belongsTo(Sede::class, 'sede_id');
