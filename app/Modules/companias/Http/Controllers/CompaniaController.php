@@ -13,8 +13,7 @@ class CompaniaController
     public function __construct(
         private readonly CompaniaService $service,
         private readonly CompaniaQueryService $queryService,
-    ) {
-    }
+    ) {}
 
     public function index(Request $request)
     {
@@ -49,6 +48,3 @@ class CompaniaController
         return response()->json(['message' => 'Eliminado']);
     }
 }
-
-
-

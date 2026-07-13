@@ -17,18 +17,14 @@ class CompaniaStoreRequest extends FormRequest
             'nombre' => ['required', 'string', 'max:255'],
             'ruc' => ['required', 'string', 'max:255'],
             'direccion' => ['required', 'string', 'max:255'],
-            'telefono' => ['nullable', 'string', 'max:50'],
-            'activo' => ['sometimes', 'boolean'],
         ];
     }
 
     public function getData(): array
     {
-        $data = $this->validated();
-
-        return $data + [
-            'activo' => $data['activo'] ?? true,
-        ];
+        return collect($this->validated())
+            ->only(['nombre', 'ruc', 'direccion'])
+            ->toArray();
     }
 }
 

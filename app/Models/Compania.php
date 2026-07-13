@@ -13,12 +13,9 @@ class Compania extends Model
         'nombre',
         'ruc',
         'direccion',
-        'telefono',
     ];
 
-    protected $casts = [
-        'activo' => 'boolean',
-    ];
+    protected $casts = [];
 
     public function sedes(): HasMany
     {

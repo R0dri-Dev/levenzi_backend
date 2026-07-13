@@ -11,10 +11,6 @@ class CompaniaService
     {
         $query = Compania::query();
 
-        if (array_key_exists('activo', $filters) && $filters['activo'] !== null) {
-            $query->where('activo', (bool) $filters['activo']);
-        }
-
         $perPage = (int) ($filters['per_page'] ?? 15);
 
         return $query
