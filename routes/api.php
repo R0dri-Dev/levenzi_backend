@@ -25,35 +25,6 @@ require __DIR__.'/../app/Modules/modulos/Http/Routes/api.php';
 require __DIR__.'/../app/Modules/productos/Http/Routes/api.php';
 require __DIR__.'/../app/Modules/ventas/Http/Routes/api.php';
 require __DIR__.'/../app/Modules/menu/Http/Routes/api.php';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+require __DIR__.'/../app/Modules/ubicacion/Http/Routes/api.php';
+require __DIR__.'/../app/Modules/TiposDocumento/Http/Routes/api.php';
+require __DIR__.'/../app/Modules/Paises/Http/Routes/api.php';

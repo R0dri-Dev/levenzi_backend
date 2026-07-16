@@ -2,6 +2,7 @@
 
 namespace App\Modules\clientes\Http\Requests;
 
+use App\Core\Rules\TelefonoValidoParaPais;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ClienteUpdateRequest extends FormRequest
@@ -20,7 +21,8 @@ class ClienteUpdateRequest extends FormRequest
             'documento_tipo' => ['nullable', 'string', 'max:50'],
             'documento_numero' => ['nullable', 'string', 'max:100'],
             'direccion' => ['sometimes', 'string', 'max:255'],
-            'telefono' => ['nullable', 'string', 'max:50'],
+            'pais_id' => ['nullable', 'exists:paises,id'],
+            'telefono' => ['nullable', 'string', new TelefonoValidoParaPais($this->input('pais_id'))],
             'email' => ['nullable', 'email', 'max:255'],
             'activo' => ['sometimes', 'boolean'],
         ];
@@ -31,4 +33,3 @@ class ClienteUpdateRequest extends FormRequest
         return $this->validated();
     }
 }
-
