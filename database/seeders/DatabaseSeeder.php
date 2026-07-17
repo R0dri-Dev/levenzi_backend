@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UbigeoSeeder::class);
         $this->call(TipoDocumentoSeeder::class);
         $this->call(CompanySeeder::class);
-        $this->call(SedeSeeder::class);
+        $this->call(SedeSeeeder::class);
         $this->call(InstalacionSeeder::class);
         $this->call(PaisSeeder::class);
     }

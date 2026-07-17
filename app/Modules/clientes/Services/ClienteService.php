@@ -9,7 +9,7 @@ class ClienteService
 {
     public function list(array $filters): LengthAwarePaginator
     {
-        $query = Cliente::query();
+        $query = Cliente::query()->with(['pais', 'distrito.provincia.departamento']);
 
         if (array_key_exists('activo', $filters) && $filters['activo'] !== null) {
             $query->where('activo', (bool) $filters['activo']);
@@ -26,7 +26,7 @@ class ClienteService
 
     public function getById(int $id): Cliente
     {
-        return Cliente::findOrFail($id);
+        return Cliente::with(['pais', 'distrito.provincia.departamento'])->findOrFail($id);
     }
 
     public function create(array $data): Cliente
@@ -48,4 +48,3 @@ class ClienteService
         $cliente->delete();
     }
 }
-
