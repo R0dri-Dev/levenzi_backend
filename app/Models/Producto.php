@@ -11,8 +11,7 @@ class Producto extends Model
     protected $table = 'productos';
 
     protected $fillable = [
-        'marca_id',
-        'instalacion_id',
+        'familia_id',
         'codigo',
         'nombre',
         'descripcion',
@@ -25,14 +24,9 @@ class Producto extends Model
         'activo' => 'boolean',
     ];
 
-    public function marca(): BelongsTo
+    public function familia(): BelongsTo
     {
-        return $this->belongsTo(Marca::class, 'marca_id');
-    }
-
-    public function instalacion(): BelongsTo
-    {
-        return $this->belongsTo(Instalacion::class, 'instalacion_id');
+        return $this->belongsTo(Familia::class, 'familia_id');
     }
 
     public function detalleVentas(): HasMany
@@ -40,4 +34,3 @@ class Producto extends Model
         return $this->hasMany(DetalleVenta::class, 'producto_id');
     }
 }
-

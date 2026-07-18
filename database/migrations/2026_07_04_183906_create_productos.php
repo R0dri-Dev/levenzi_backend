@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('marca_id')->constrained()->restrictOnDelete();
-            $table->foreignId('instalacion_id')->constrained('instalaciones')->restrictOnDelete();
+
+            $table->foreignId('familia_id')->nullable()->constrained('familias')->nullOnDelete();
 
             $table->string('codigo')->unique();
             $table->string('nombre');

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('codigo', 10)->unique(); // DNI, RUC, CE, PAS, PTP...
             $table->string('nombre'); // Documento Nacional de Identidad, Registro Único de Contribuyentes, ETC
             $table->unsignedTinyInteger('longitud')->nullable(); // 8, 11, etc. (validación)
+            $table->string('sunat_code', 4)->nullable(); // Código SUNAT catálogo 06, para facturación electrónica
             $table->boolean('activo')->default(true);
             $table->timestamps();
         });

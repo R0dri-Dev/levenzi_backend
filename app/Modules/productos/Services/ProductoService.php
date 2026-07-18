@@ -11,12 +11,8 @@ class ProductoService
     {
         $query = Producto::query();
 
-        if (! empty($filters['marca_id'])) {
-            $query->where('marca_id', (int) $filters['marca_id']);
-        }
-
-        if (! empty($filters['instalacion_id'])) {
-            $query->where('instalacion_id', (int) $filters['instalacion_id']);
+        if (! empty($filters['familia_id'])) {
+            $query->where('familia_id', (int) $filters['familia_id']);
         }
 
         if (array_key_exists('activo', $filters) && $filters['activo'] !== null) {

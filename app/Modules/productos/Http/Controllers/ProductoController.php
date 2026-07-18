@@ -13,8 +13,7 @@ class ProductoController
     public function __construct(
         private readonly ProductoService $service,
         private readonly ProductoQueryService $queryService,
-    ) {
-    }
+    ) {}
 
     public function index(Request $request)
     {
@@ -49,5 +48,3 @@ class ProductoController
         return response()->json(['message' => 'Eliminado']);
     }
 }
-
-

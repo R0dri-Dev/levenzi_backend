@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'decolecta' => [
+        'key' => env('DECOLECTA_API_KEY'),
+        'base_url' => env('DECOLECTA_BASE_URL', 'https://api.decolecta.com/v1'),
+    ],
+
 ];

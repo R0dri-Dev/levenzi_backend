@@ -14,8 +14,7 @@ class ProductoUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'marca_id' => ['sometimes', 'integer', 'min:1'],
-            'instalacion_id' => ['sometimes', 'integer', 'min:1'],
+            'familia_id' => ['sometimes', 'nullable', 'integer', 'exists:familias,id'],
             'codigo' => ['nullable', 'string', 'max:255'],
             'nombre' => ['sometimes', 'string', 'max:255'],
             'descripcion' => ['nullable', 'string', 'max:500'],
@@ -29,4 +28,3 @@ class ProductoUpdateRequest extends FormRequest
         return $this->validated();
     }
 }
-

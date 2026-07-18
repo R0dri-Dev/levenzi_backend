@@ -12,7 +12,13 @@ class TipoDocumentoController
         return response()->json(
             TipoDocumento::where('activo', true)
                 ->orderBy('nombre')
-                ->get(['id', 'codigo', 'nombre', 'longitud'])
+                ->get([
+                    'id',
+                    'codigo',
+                    'nombre',
+                    'longitud',
+                    // 'sunat_code'
+                    ])
         );
     }
 }

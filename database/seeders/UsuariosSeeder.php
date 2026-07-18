@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -76,8 +75,35 @@ class UsuariosSeeder extends Seeder
             // Módulos
             'modulos.view',
             'modulos.edit',
-        ];
 
+            // Familias
+            'familias.view',
+            'familias.edit',
+
+            // Unidades de Medida
+            'unidades-medida.view',
+            'unidades-medida.edit',
+
+            // Tipos de Unidad de Medida
+            'tipos-unidad-medida.view',
+            'tipos-unidad-medida.edit',
+
+            // Conversiones de Producto
+            'producto-conversiones.view',
+            'producto-conversiones.edit',
+
+            // Tipos de Documento
+            'tipos-documento.view',
+            'tipos-documento.edit',
+
+            // Países
+            'paises.view',
+            'paises.edit',
+
+            // Documentos
+            'documentos.view',
+            'documentos.edit',
+        ];
 
         foreach ($permissions as $permissionName) {
             Permission::firstOrCreate([
@@ -148,7 +174,7 @@ class UsuariosSeeder extends Seeder
 
         $permissionPivot = 'role_has_permissions';
 
-        if ($adminRole && !empty($permissionIds)) {
+        if ($adminRole && ! empty($permissionIds)) {
             foreach ($permissionIds as $pid) {
                 $exists = DB::table($permissionPivot)
                     ->where('permission_id', $pid)
@@ -164,7 +190,7 @@ class UsuariosSeeder extends Seeder
             }
         }
 
-        if ($usuarioRole && !empty($permissionIds)) {
+        if ($usuarioRole && ! empty($permissionIds)) {
             foreach ($permissionIds as $pid) {
                 $exists = DB::table($permissionPivot)
                     ->where('permission_id', $pid)
@@ -179,7 +205,6 @@ class UsuariosSeeder extends Seeder
                 }
             }
         }
-
 
     }
 }

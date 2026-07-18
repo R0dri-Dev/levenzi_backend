@@ -14,8 +14,7 @@ class ProductoStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'marca_id' => ['required', 'integer', 'min:1'],
-            'instalacion_id' => ['required', 'integer', 'min:1'],
+            'familia_id' => ['nullable', 'integer', 'exists:familias,id'],
             'codigo' => ['nullable', 'string', 'max:255'],
             'nombre' => ['required', 'string', 'max:255'],
             'descripcion' => ['nullable', 'string', 'max:500'],

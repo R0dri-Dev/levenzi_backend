@@ -11,13 +11,24 @@ class Venta extends Model
     protected $table = 'ventas';
 
     protected $fillable = [
-        'sede_id',
+        'codigo',
+        'instalacion_id',
+        'marcas_id',
         'cliente_id',
         'doctor_id',
         'user_id',
         'direccion',
         'referencia',
         'observaciones',
+        'created_by',
+        'updated_by',
+        'active',
+        'preventa'
+    ];
+
+    protected $casts = [
+        'active' => 'boolean',
+        'preventa' => 'boolean',
     ];
 
     public function sede(): BelongsTo

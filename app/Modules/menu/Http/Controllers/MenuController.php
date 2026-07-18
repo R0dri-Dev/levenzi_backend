@@ -2,10 +2,7 @@
 
 namespace App\Modules\menu\Http\Controllers;
 
-use App\Models\Modulo;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
-use Spatie\Permission\Models\Permission;
 
 class MenuController
 {
@@ -87,14 +84,35 @@ class MenuController
                 'route' => '/modulos',
                 'icon' => 'menu',
             ],
+            'familias.view' => [
+                'label' => 'Familias',
+                'route' => '/familias',
+                'icon' => 'box',
+            ],
 
+            'unidades-medida.view' => [
+                'label' => 'Unidades de Medida',
+                'route' => '/unidades-medida',
+                'icon' => 'settings',
+            ],
+
+            'tipos-unidad-medida.view' => [
+                'label' => 'Tipos de Unidad',
+                'route' => '/tipos-unidad-medida',
+                'icon' => 'settings',
+            ],
+
+            'producto-conversiones.view' => [
+                'label' => 'Conversiones',
+                'route' => '/producto-conversiones',
+                'icon' => 'filter',
+            ],
         ];
-
 
         $items = [];
 
         foreach ($permissionToItem as $permissionName => $item) {
-            if (!empty($permissionName) && $user && method_exists($user, 'hasPermissionTo')) {
+            if (! empty($permissionName) && $user && method_exists($user, 'hasPermissionTo')) {
                 if ($user->hasPermissionTo($permissionName)) {
                     $items[] = [
                         ...$item,
@@ -115,4 +133,3 @@ class MenuController
         return response()->json($items);
     }
 }
-

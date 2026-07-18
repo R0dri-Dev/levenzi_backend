@@ -14,6 +14,7 @@ class TipoDocumento extends Model
         'nombre',
         'longitud',
         'activo',
+        'sunat_code',
     ];
 
     protected $casts = [
